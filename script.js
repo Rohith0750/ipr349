@@ -41,18 +41,26 @@ document.getElementById('registrationForm').addEventListener('submit', (e) => {
     }
 });
 
-// Updated videoSources with Streamable links
+// Updated videoSources with Streamable embed links
 const videoSources = {
-    defence: 'https://streamable.com/roos5o',
-    shooting: 'https://streamable.com/yuea49',
-    fitness: 'https://streamable.com/jg5fdp'
+    defence: 'https://streamable.com/e/roos5o',
+    shooting: 'https://streamable.com/e/yuea49',
+    fitness: 'https://streamable.com/e/jg5fdp'
 };
 
 function showVideo(option) {
     const videoContainer = document.getElementById('videoContainer');
-    const videoElement = document.getElementById('trainingVideo');
-
-    videoElement.src = videoSources[option];
+    
+    // Clear the existing videoContainer content
+    videoContainer.innerHTML = `
+        <iframe
+            src="${videoSources[option]}"
+            frameborder="0"
+            allowfullscreen
+            style="width: 100%; height: 300px; border-radius: 5px; border: 2px solid #4ca1af;">
+        </iframe>
+    `;
+    
     videoContainer.style.display = 'block';
     document.getElementById('backButton').classList.remove('hidden');
     document.querySelector('.options-container').style.display = 'none';
@@ -64,6 +72,7 @@ function goBack() {
     const videoContainer = document.getElementById('videoContainer');
 
     videoContainer.style.display = 'none';
+    videoContainer.innerHTML = ''; // Clear the iframe
     document.querySelector('.options-container').style.display = 'flex';
     document.getElementById('backButton').classList.add('hidden');
 
