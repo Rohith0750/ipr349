@@ -43,7 +43,7 @@ document.getElementById('registrationForm').addEventListener('submit', (e) => {
 
 // Updated videoSources with Streamable embed links
 const videoSources = {
-    defence: 'https://streamable.com/e/roos5o',
+    defence: 'https://github.com/Rohith0750/ipr349/blob/main/one_123.mp4',
     shooting: 'https://streamable.com/e/yuea49',
     fitness: 'https://streamable.com/e/jg5fdp'
 };
