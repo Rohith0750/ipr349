@@ -1,0 +1,114 @@
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #2c3e50, #4ca1af);
+    color: #fdfdfd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+.hidden {
+    display: none;
+}
+.container, .training-page {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 350px;
+    transition: all 0.3s ease-in-out;
+}
+.container h1, .training-page h1 {
+    font-size: 28px;
+    margin-bottom: 25px;
+    color: #2c3e50;
+}
+.container input, .training-page button {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+.container input:focus, .training-page button:hover {
+    border-color: #4ca1af;
+    box-shadow: 0 0 8px rgba(76, 161, 175, 0.6);
+}
+.training-page .options-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+.training-page .option {
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #4ca1af, #2c3e50);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+.training-page .option:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(135deg, #2c3e50, #4ca1af);
+}
+.training-page .video-container {
+    display: none;
+    width: 100%;
+    max-width: 350px;
+    margin: 15px 0;
+}
+.training-page .video-container video {
+    width: 100%;
+    border-radius: 5px;
+    border: 2px solid #4ca1af;
+}
+.control-bar {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+.control-bar button {
+    padding: 10px 15px;
+    background: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease-in-out;
+}
+.control-bar button:hover {
+    background: #495057;
+}
+a {
+    color: #4ca1af;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease-in-out;
+}
+a:hover {
+    color: #2c3e50;
+}
+.fade-in {
+    animation: fadeIn 0.6s ease-in-out;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
