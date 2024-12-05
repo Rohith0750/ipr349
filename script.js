@@ -41,10 +41,11 @@ document.getElementById('registrationForm').addEventListener('submit', (e) => {
     }
 });
 
+// Updated videoSources with Streamable links
 const videoSources = {
-    defence: 'one_123.mp4',
-    shooting: 'three_123.mp4',
-    fitness: 'two_123.mp4'
+    defence: 'https://streamable.com/roos5o',
+    shooting: 'https://streamable.com/yuea49',
+    fitness: 'https://streamable.com/jg5fdp'
 };
 
 function showVideo(option) {
