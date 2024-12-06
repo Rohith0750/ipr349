@@ -41,6 +41,7 @@ document.getElementById('registrationForm').addEventListener('submit', (e) => {
     }
 });
 
+
 // Updated videoSources with Streamable embed links
 const videoSources = {
     defence: 'one_123.mp4',
