@@ -46,7 +46,7 @@ document.getElementById('registrationForm').addEventListener('submit', (e) => {
 const videoSources = {
     defence: 'one_123.mp4',
     shooting: 'two_123.mp4',
-    fitness: 'https://streamable.com/e/jg5fdp'
+    fitness: 'three_123.mp4'
 };
 
 function showVideo(option) {
