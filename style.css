@@ -112,3 +112,8 @@ a:hover {
         transform: translateY(0);
     }
 }
+a-scene {
+    width: 100%;
+    height: 100vh;
+}
+
