@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Military Training Portal</title>
+    <title>Military Training Portal with VR</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
 </head>
 <body>
+    <!-- Authentication Page -->
     <div class="container fade-in" id="authPage">
         <div id="loginForm">
             <h1>Military Training Login</h1>
@@ -31,12 +33,14 @@
         </div>
     </div>
 
+    <!-- Training Page -->
     <div class="training-page hidden fade-in" id="trainingPage">
         <h1>Select a Training Option</h1>
         <div class="options-container">
             <button class="option" onclick="showVideo('defence')">Defence</button>
             <button class="option" onclick="showVideo('shooting')">Shooting</button>
             <button class="option" onclick="showVideo('fitness')">Fitness</button>
+            <button class="option" onclick="showVRScene()">Enter VR Training</button>
         </div>
         <div class="video-container" id="videoContainer">
             <video id="trainingVideo" controls>
@@ -51,6 +55,30 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <!-- VR Scene -->
+    <div class="hidden fade-in" id="vrScene">
+        <a-scene>
+            <a-box position="0 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+            <a-sky color="#ECECEC"></a-sky>
+            <a-camera position="0 1.6 0">
+                <a-cursor></a-cursor>
+            </a-camera>
+        </a-scene>
+        <button onclick="exitVR()">Exit VR</button>
+    </div>
+
+    <script>
+        // Function to show VR Scene
+        function showVRScene() {
+            document.getElementById('trainingPage').classList.add('hidden');
+            document.getElementById('vrScene').classList.remove('hidden');
+        }
+
+        // Function to exit VR
+        function exitVR() {
+            document.getElementById('vrScene').classList.add('hidden');
+            document.getElementById('trainingPage').classList.remove('hidden');
+        }
+    </script>
 </body>
 </html>
