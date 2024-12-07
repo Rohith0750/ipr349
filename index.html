@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Military Training Portal with VR</title>
+    <title>Military Training Portal</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
 </head>
 <body>
     <!-- Authentication Page -->
@@ -40,7 +39,6 @@
             <button class="option" onclick="showVideo('defence')">Defence</button>
             <button class="option" onclick="showVideo('shooting')">Shooting</button>
             <button class="option" onclick="showVideo('fitness')">Fitness</button>
-            <button class="option" onclick="showVRScene()">Enter VR Training</button>
         </div>
         <div class="video-container" id="videoContainer">
             <video id="trainingVideo" controls>
@@ -53,18 +51,6 @@
             <button onclick="redo()">Redo</button>
             <button id="backButton" class="hidden" onclick="goBack()">Back</button>
         </div>
-    </div>
-
-    <!-- VR Scene -->
-    <div class="hidden fade-in" id="vrScene">
-        <a-scene>
-            <a-box position="0 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
-            <a-sky color="#ECECEC"></a-sky>
-            <a-camera position="0 1.6 0">
-                <a-cursor></a-cursor>
-            </a-camera>
-        </a-scene>
-        <button onclick="exitVR()">Exit VR</button>
     </div>
 
     <script>
@@ -116,16 +102,32 @@
             }
         });
 
-        // Show VR Scene
-        function showVRScene() {
-            document.getElementById('trainingPage').classList.add('hidden');
-            document.getElementById('vrScene').classList.remove('hidden');
+        // Show Video Based on Training Option
+        function showVideo(option) {
+            const videoContainer = document.getElementById('videoContainer');
+            const trainingVideo = document.getElementById('trainingVideo');
+
+            const videoSources = {
+                defence: "defence.mp4",
+                shooting: "shooting.mp4",
+                fitness: "fitness.mp4"
+            };
+
+            trainingVideo.src = videoSources[option] || "";
+            videoContainer.style.display = "block";
         }
 
-        // Exit VR Scene
-        function exitVR() {
-            document.getElementById('vrScene').classList.add('hidden');
-            document.getElementById('trainingPage').classList.remove('hidden');
+        // Placeholder Undo/Redo Functions
+        function undo() {
+            alert("Undo functionality is not yet implemented.");
+        }
+
+        function redo() {
+            alert("Redo functionality is not yet implemented.");
+        }
+
+        function goBack() {
+            document.getElementById('videoContainer').style.display = "none";
         }
     </script>
 </body>
