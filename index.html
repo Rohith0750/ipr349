@@ -40,15 +40,13 @@
             <button class="option" onclick="showVideo('shooting')">Shooting</button>
             <button class="option" onclick="showVideo('fitness')">Fitness</button>
         </div>
-        <div class="video-container" id="videoContainer">
+        <div class="video-container hidden" id="videoContainer">
             <video id="trainingVideo" controls>
                 <source src="" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
         <div class="control-bar">
-            <button onclick="undo()">Undo</button>
-            <button onclick="redo()">Redo</button>
             <button id="backButton" class="hidden" onclick="goBack()">Back</button>
         </div>
     </div>
@@ -74,7 +72,6 @@
             const password = document.getElementById('registerPassword').value;
 
             if (militaryID && name && password) {
-                // Simulate a successful registration (replace this with backend integration)
                 document.getElementById('registerMessage').textContent = "Registration successful! Please login.";
                 document.getElementById('registerMessage').style.color = "green";
                 showLogin(); // Switch to login page
@@ -84,14 +81,13 @@
             }
         });
 
-        // Handle Login Form Submission (dummy handler)
+        // Handle Login Form Submission
         document.getElementById('loginFormElement').addEventListener('submit', function (event) {
             event.preventDefault();
             const militaryID = document.getElementById('loginMilitaryID').value;
             const password = document.getElementById('loginPassword').value;
 
             if (militaryID && password) {
-                // Simulate a successful login (replace this with backend integration)
                 document.getElementById('loginMessage').textContent = "Login successful!";
                 document.getElementById('loginMessage').style.color = "green";
                 document.getElementById('authPage').classList.add('hidden');
@@ -114,20 +110,14 @@
             };
 
             trainingVideo.src = videoSources[option] || "";
-            videoContainer.style.display = "block";
+            videoContainer.classList.remove('hidden');
+            document.getElementById('backButton').classList.remove('hidden');
         }
 
-        // Placeholder Undo/Redo Functions
-        function undo() {
-            alert("Undo functionality is not yet implemented.");
-        }
-
-        function redo() {
-            alert("Redo functionality is not yet implemented.");
-        }
-
+        // Go Back to Training Options
         function goBack() {
-            document.getElementById('videoContainer').style.display = "none";
+            document.getElementById('videoContainer').classList.add('hidden');
+            document.getElementById('backButton').classList.add('hidden');
         }
     </script>
 </body>
