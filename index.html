@@ -68,13 +68,61 @@
     </div>
 
     <script>
-        // Function to show VR Scene
+        // Show Registration Form
+        function showRegister() {
+            document.getElementById('loginForm').classList.add('hidden');
+            document.getElementById('registerForm').classList.remove('hidden');
+        }
+
+        // Show Login Form
+        function showLogin() {
+            document.getElementById('registerForm').classList.add('hidden');
+            document.getElementById('loginForm').classList.remove('hidden');
+        }
+
+        // Handle Registration Form Submission
+        document.getElementById('registrationForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const militaryID = document.getElementById('registerMilitaryID').value;
+            const name = document.getElementById('registerName').value;
+            const password = document.getElementById('registerPassword').value;
+
+            if (militaryID && name && password) {
+                // Simulate a successful registration (replace this with backend integration)
+                document.getElementById('registerMessage').textContent = "Registration successful! Please login.";
+                document.getElementById('registerMessage').style.color = "green";
+                showLogin(); // Switch to login page
+            } else {
+                document.getElementById('registerMessage').textContent = "Please fill in all fields.";
+                document.getElementById('registerMessage').style.color = "red";
+            }
+        });
+
+        // Handle Login Form Submission (dummy handler)
+        document.getElementById('loginFormElement').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const militaryID = document.getElementById('loginMilitaryID').value;
+            const password = document.getElementById('loginPassword').value;
+
+            if (militaryID && password) {
+                // Simulate a successful login (replace this with backend integration)
+                document.getElementById('loginMessage').textContent = "Login successful!";
+                document.getElementById('loginMessage').style.color = "green";
+                document.getElementById('authPage').classList.add('hidden');
+                document.getElementById('trainingPage').classList.remove('hidden');
+            } else {
+                document.getElementById('loginMessage').textContent = "Invalid Military ID or Password.";
+                document.getElementById('loginMessage').style.color = "red";
+            }
+        });
+
+        // Show VR Scene
         function showVRScene() {
             document.getElementById('trainingPage').classList.add('hidden');
             document.getElementById('vrScene').classList.remove('hidden');
         }
 
-        // Function to exit VR
+        // Exit VR Scene
         function exitVR() {
             document.getElementById('vrScene').classList.add('hidden');
             document.getElementById('trainingPage').classList.remove('hidden');
