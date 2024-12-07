@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Authentication Page -->
     <div class="container fade-in" id="authPage">
         <div id="loginForm">
             <h1>Military Training Login</h1>
@@ -32,7 +31,6 @@
         </div>
     </div>
 
-    <!-- Training Page -->
     <div class="training-page hidden fade-in" id="trainingPage">
         <h1>Select a Training Option</h1>
         <div class="options-container">
@@ -40,85 +38,19 @@
             <button class="option" onclick="showVideo('shooting')">Shooting</button>
             <button class="option" onclick="showVideo('fitness')">Fitness</button>
         </div>
-        <div class="video-container hidden" id="videoContainer">
+        <div class="video-container" id="videoContainer">
             <video id="trainingVideo" controls>
                 <source src="" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
         <div class="control-bar">
+            <button onclick="undo()">Undo</button>
+            <button onclick="redo()">Redo</button>
             <button id="backButton" class="hidden" onclick="goBack()">Back</button>
         </div>
     </div>
 
-    <script>
-        // Show Registration Form
-        function showRegister() {
-            document.getElementById('loginForm').classList.add('hidden');
-            document.getElementById('registerForm').classList.remove('hidden');
-        }
-
-        // Show Login Form
-        function showLogin() {
-            document.getElementById('registerForm').classList.add('hidden');
-            document.getElementById('loginForm').classList.remove('hidden');
-        }
-
-        // Handle Registration Form Submission
-        document.getElementById('registrationForm').addEventListener('submit', function (event) {
-            event.preventDefault();
-            const militaryID = document.getElementById('registerMilitaryID').value;
-            const name = document.getElementById('registerName').value;
-            const password = document.getElementById('registerPassword').value;
-
-            if (militaryID && name && password) {
-                document.getElementById('registerMessage').textContent = "Registration successful! Please login.";
-                document.getElementById('registerMessage').style.color = "green";
-                showLogin(); // Switch to login page
-            } else {
-                document.getElementById('registerMessage').textContent = "Please fill in all fields.";
-                document.getElementById('registerMessage').style.color = "red";
-            }
-        });
-
-        // Handle Login Form Submission
-        document.getElementById('loginFormElement').addEventListener('submit', function (event) {
-            event.preventDefault();
-            const militaryID = document.getElementById('loginMilitaryID').value;
-            const password = document.getElementById('loginPassword').value;
-
-            if (militaryID && password) {
-                document.getElementById('loginMessage').textContent = "Login successful!";
-                document.getElementById('loginMessage').style.color = "green";
-                document.getElementById('authPage').classList.add('hidden');
-                document.getElementById('trainingPage').classList.remove('hidden');
-            } else {
-                document.getElementById('loginMessage').textContent = "Invalid Military ID or Password.";
-                document.getElementById('loginMessage').style.color = "red";
-            }
-        });
-
-        // Show Video Based on Training Option
-        function showVideo(option) {
-            const videoContainer = document.getElementById('videoContainer');
-            const trainingVideo = document.getElementById('trainingVideo');
-
-            const videoSources = {
-                defence: "defence.mp4",
-                shooting: "shooting.mp4",
-                fitness: "fitness.mp4"
-            };
-
-            trainingVideo.src = videoSources[option] || "";
-            videoContainer.classList.remove('hidden');
-            document.getElementById('backButton').classList.remove('hidden');
-        }
-
-        // Go Back to Training Options
-        function goBack() {
-            document.getElementById('videoContainer').classList.add('hidden');
-            document.getElementById('backButton').classList.add('hidden');
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
