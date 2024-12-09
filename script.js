@@ -45,8 +45,8 @@ document.getElementById('registrationForm').addEventListener('submit', (e) => {
 // Updated videoSources with Streamable embed links
 const videoSources = {
     defence: 'one_123.mp4',
-    shooting: 'two_123.mp4',
-    fitness: 'three_123.mp4'
+    fitness: 'two_123.mp4',
+    shooting: 'three_123.mp4'
 };
 
 function showVideo(option) {
